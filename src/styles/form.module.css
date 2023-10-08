@@ -1,0 +1,59 @@
+/* form.module.css */
+
+.form {
+  border: 1px solid #888;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.fields {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fields label {
+  width: 6rem;
+  flex-shrink: 0;
+  flex-grow: 1;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.textField, .textArea {
+  min-width: 70%;
+  flex-grow: 1;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.textField {
+  height: 3rem;
+}
+
+.textArea {
+  height: 8rem;
+}
+
+@media (max-width: 439px) {
+  .fields label {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+  }
+  .textField, .textArea {
+    font-size: 0.9rem;
+  }
+  .textField {
+    height: 2.5rem;
+  }
+}
+

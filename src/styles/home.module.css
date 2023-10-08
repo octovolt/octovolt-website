@@ -1,0 +1,47 @@
+/* home.module.css */
+
+h2.welcome {
+  margin: 0;
+  padding-top: 3rem;
+  text-align: center;
+  letter-spacing: .5rem;
+}
+
+h2.welcome p {
+  margin: 0;
+  padding-top: 1rem;
+  letter-spacing: 2rem;
+  font-size: 2rem;
+}
+
+h2.welcome p span {
+  letter-spacing: 0;
+}
+
+@media (max-width: 445px) {
+  h2.welcome p {
+    letter-spacing: 1.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  h2.welcome {
+    padding-top: 2rem;
+  }
+  h2.welcome p {
+    font-size: 1.8rem;
+    letter-spacing: 1.2rem;
+  }
+}
+
+@media (max-width: 330px) {
+  h2.welcome {
+    font-size: 1rem;
+    padding-top: 1.5rem;
+  }
+  h2.welcome p {
+    font-size: 1.6rem;
+    letter-spacing: 0.7rem;
+  }
+}
+

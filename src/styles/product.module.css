@@ -1,0 +1,106 @@
+/* product.module.css */
+
+.coreContainer {
+  display: flex;
+  padding: 3rem 0 1rem 0;
+}
+
+.mainImage {
+  flex-shrink: 0;
+}
+
+.mainImage img {
+  object-fit: contain;
+}
+
+.coreInfo {
+  padding-left: 2rem;
+}
+
+.coreInfo h1 {
+  margin:0;
+  line-height: 1.4rem;
+}
+
+.coreInfo ul {
+  padding-inline-start: 1.2rem;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  font-size: .9em;
+}
+
+.purchasing {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.purchasingOptions {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.2rem;
+  margin: 1rem 1rem 0 0;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+}
+
+.purchasing .amountManager {
+  margin: 1rem 1rem 0 0;
+}
+
+.amountManager {
+  display: flex;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  font-size: 0.9rem;
+}
+
+.amountManager button {
+  border-radius: 0;
+  border: 1px solid black;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  width: 2rem;
+}
+
+.amount {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.4rem 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.addToCart {
+  background: darkgreen;
+  color: white;
+  font-size: 0.9rem;
+  margin: 1rem 1rem 0 0;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-width: 1px;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+}
+
+.addToCart:active {
+  background: forestgreen;
+}
+
+.status {
+  font-size: 0.7em;
+  color: #333;
+}
+
+@media (max-width: 619px) {
+  .coreContainer {
+    display: block;
+    padding: 2rem 0 0 0;
+  }
+  .mainImage {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .coreInfo {
+    padding: 1.2rem 0 0 0;
+  }
+  .coreInfo h1 {
+    text-align:center;
+    padding-bottom:1.2rem;
+  }
+}

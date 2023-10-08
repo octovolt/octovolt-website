@@ -1,0 +1,25 @@
+/* contact.module.css */
+
+.contactForm .textField, .contactForm .textArea {
+  min-width: 80%;
+}
+
+.sendWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.send {
+  background: darkgreen;
+  color: white;
+  font-size: 1rem;
+  margin: 1rem 0 0 0;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-width: 1px;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+}
+
+.send:active {
+  background: forestgreen;
+}

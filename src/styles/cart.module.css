@@ -1,0 +1,276 @@
+/* cart.module.css */
+
+.headingContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 2rem 0;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headingContainer h2 {
+  flex-grow: 1;
+}
+
+.headingContainer h2, .headingContainer p {
+  margin: 0
+}
+
+.subtotalContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.subtotalContainer .cartSubtotal {
+  margin: 0;
+}
+
+.callToActionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* TODO: double check these */
+
+.cartSubtotal {
+  text-align: right;
+  font-size: 1rem;
+}
+
+/* cart */
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0 1rem;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  min-height: 8.53rem;
+  display: grid;
+  align-items: center;
+}
+
+.cartList .cartListItem:last-child {
+  border: 0;
+}
+
+.cartListItem {
+  display: flex;
+  flex-grow: 1;
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.itemName {
+  min-width: 12rem;
+  padding-right: 1rem;
+  flex-grow: 0;
+}
+
+.itemDetails {
+  flex-grow: 1;
+}
+
+.itemOption {
+  flex-grow: 1;
+  min-width: 7rem;
+  padding-right: 1rem;
+}
+
+.itemNumbers {
+  flex-grow: 0;
+  justify-content: flex-end;
+}
+
+.itemName, .itemDetails {
+  display: flex;
+}
+
+.itemName, .itemOption, .itemNumbers, .itemNumbers span {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.priceContainer span {
+  padding: .5rem 0;
+}
+
+.priceContainer, .priceContainer .price {
+  flex-grow: 0;
+  padding-left:1rem;
+}
+
+.itemNumbers .price {
+  width: 3rem;
+  justify-content: flex-end;
+}
+
+/* shipping */
+
+.mainColumn .shippingAddressForm {
+  padding: 1rem 1rem 0;
+}
+
+/* checkout */
+
+.sameAsShipping, .paymentOptions {
+  display: flex;
+  height: 5rem;
+  align-items: center;
+}
+
+.paymentOptions {
+  flex-wrap: wrap;
+}
+
+.mainColumn .paymentOptionsForm {
+  min-height: 8.53rem;
+  padding: 1rem 1rem 0;
+}
+
+.paymentOptions div {
+  display: flex;
+  align-items: center;
+}
+
+.sameAsShipping input, .paymentOptions input {
+  margin: 0 1rem 0 0;
+  flex-shrink: 0;
+  appearance: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--color-border);
+  transition: 0.2s all linear;
+  position: relative;
+}
+
+.paymentOptions label {
+  padding: 0 2rem 0 0;
+}
+
+.sameAsShipping input:checked, .paymentOptions input:checked {
+  border: 0.4rem solid #000;
+}
+
+.billingAddress .shownFields, .paymentOptionsForm .shownFields {
+  display: flex;
+}
+
+form .hiddenFields, .paymentOptionsForm .hiddenFields {
+  display: none;
+}
+
+/* buttons -- TODO: abstract the green button and allow the calculate button to override */
+
+.calculateButton, .checkoutButton, .nextButton {
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-width: 1px;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  align-self: flex-end;
+}
+
+.calculateButton {
+  background: #ccc;
+  color: black;
+}
+
+.calculateButton:active {
+  background: #eee;
+}
+
+.checkoutButton, .nextButton {
+  background: darkgreen;
+  color: white;
+}
+
+.checkoutButton:active, .nextButton:active {
+  background: forestgreen;
+}
+
+.checkoutButton:disabled, .nextButton:disabled, .checkoutButton[disabled], .nextButton[disabled] {
+  opacity: 0.6;
+}
+
+.mainColumn form h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* .billingAddress {
+  min-height: 8.53rem;
+  padding: 1rem 1rem 0;
+} */
+
+/* TODO: convert to rem max-widths */
+
+@media (max-width: 535px) {
+  .itemDetails {
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 490px) {
+  .cartList, .cartSubtotal {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 26rem) { /* 416px */
+  .paymentOptions {
+    height: 6rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 342px) {
+  .itemOption {
+    align-content: flex-start;
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 326px) {
+  .cartListItem {
+    padding-bottom: 0;
+  }
+  .itemName {
+    min-width: 12rem;
+  }
+  .headingContainer {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 254px) {
+  .cartList {
+    padding: 0 2%;
+  }
+  .cartListItem {
+    padding-top: 0.5rem;
+  }
+  .cartSubtotal {
+    padding-right: 2%;
+  }
+  .cartList, .cartSubtotal, .itemNumbers div, .itemNumbers button {
+    font-size: 0.8rem;
+  }
+}
+

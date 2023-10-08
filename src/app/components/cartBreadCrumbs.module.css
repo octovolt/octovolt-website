@@ -1,0 +1,27 @@
+.container {
+  font-style: italic;
+  flex-grow: 0;
+}
+
+.container a, .container span {
+  padding-bottom: 0.5rem;
+}
+
+.container span.disabled {
+  color: #888;
+}
+
+.currentStep {
+  font-weight: bold;
+  border-bottom: 0.2rem solid #000;
+}
+
+.separator {
+  font: icon;
+}
+
+@media (max-width: 254px) {
+  .container {
+    font-size: 0.8rem;
+  }
+}

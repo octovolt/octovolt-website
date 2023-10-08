@@ -1,0 +1,31 @@
+.container {
+  max-width: 60rem;
+  min-width: 220px;
+  padding: 0 1rem 1rem;
+  margin: 0 auto 6rem;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 56rem) {
+  .container {
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 254px) {
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+/* catalog.module.css */
+
+main .catalog {
+  justify-content: space-around;
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.catalog .catalogItem {
+  border-radius: .5rem;
+  padding: 2rem 2rem 1rem;
+}
+
+.catalog .catalogItem:hover {
+  box-shadow: 0rem 0rem 10px 3px #ccc;
+}
+
+.catalogItem a {
+  text-decoration: none;
+}
+
+.catalogItem h3 {
+  text-align: center;
+  color: black;
+  margin: -.3rem 0;
+  padding: 1rem 0;
+}
+
+@media (max-width: 320px) {
+  .catalog .catalogItem {
+    border-radius: 0;
+    padding: 0;
+  }
+}
