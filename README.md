@@ -1,6 +1,6 @@
 # Octovolt Website
 
-This is the Octovolt website hosted at [https://octovolt.xyz](https://octovolt.xyz), which is based on Next.js, utilizing TypeScript, React and Node.js. The site is primarily an e-commerce site, but it also has pages for a blog. In the future, I hope to add JavaScript experiments; CSS, JS, and WebGL artwork; web based utilities for making music or working with my products; and maybe some other dark corners.  
+This is the Octovolt website hosted at [https://octovolt.xyz](https://octovolt.xyz), which is based on Next.js and utilizes TypeScript, React and Node.js. The site is primarily an e-commerce site, but it also has pages for a blog. In the future, I hope to add JavaScript experiments; CSS, JS, and WebGL artwork; web based utilities for making music or working with my products; and maybe some other dark corners.  
 
 It was originally a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), but I have modified it a bit since that initial bootstrap.
 
