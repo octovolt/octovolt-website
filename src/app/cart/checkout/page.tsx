@@ -42,15 +42,15 @@ function CtaButton({ ...props }: CtaProps): JSX.Element {
 export default function Checkout(): JSX.Element {
   // FIXME: this is a hack to get around the fact that the radio buttons are not not working
   // in development mode. Please see: https://github.com/vercel/next.js/issues/49499
-  if (process.env.NODE_ENV === 'development') {
-    useEffect(() => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
       document.querySelectorAll('input[type=radio]').forEach((elem) => {
         if (elem.hasAttribute('checked')) {
           (elem as HTMLInputElement).checked = true
         }
       });
-    }, []);
-  }
+    }
+  }, []);
 
   const cart = useContext(CartContext);
 
