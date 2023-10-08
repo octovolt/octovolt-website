@@ -4,7 +4,7 @@ This is the Octovolt website hosted at [https://octovolt.xyz](https://octovolt.x
 
 It was originally a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), but I have modified it a bit since that initial bootstrap.
 
-I hope that by publishing this code on GitHub it might (eventually) serve as an example of how to build an e-commerce site from scratch without needing to pay a exorbitant prices to a third party for hosting and/or the management of transactions. Ideally, this would free people to create more readily profitable microbusinesses and hobby businesses, rather than operating at a loss due to the cost of e-commerce.
+I hope that by publishing this code on GitHub it might (eventually) serve as an example of how to build an e-commerce site from scratch without needing to pay exorbitant prices to a third party for hosting and/or the management of transactions. Ideally, this would free people to create more readily profitable microbusinesses and hobby businesses, rather than operating at a loss due to the cost of e-commerce.
 
 ## Getting Started
 
