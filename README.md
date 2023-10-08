@@ -4,7 +4,7 @@ This is the Octovolt website hosted at [https://octovolt.xyz](https://octovolt.x
 
 It was originally a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), but I have modified it a bit since that initial bootstrap.
 
-I hope that by publishing this code on GitHub it might (eventually) serve as an example of how to build an e-commerce site from scratch without needing to pay a third party for exorbitant prices for hosting and/or the management of transactions. Ideally, this would free people to create more microbusinesses and hobby businesses that are more readily profitable, rather than operating at a loss due to the cost of e-commerce.
+I hope that by publishing this code on GitHub it might (eventually) serve as an example of how to build an e-commerce site from scratch without needing to pay a exorbitant prices to a third party for hosting and/or the management of transactions. Ideally, this would free people to create more readily profitable microbusinesses and hobby businesses, rather than operating at a loss due to the cost of e-commerce.
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ npm run dev
 
 The site will now be viewable at [http://localhost:3000](http://localhost:3000). 
 
-Then, run the proxy for HTTPS:
+Second, run the proxy for HTTPS:
 
 ```bash
 npx local-ssl-proxy --config local-ssl-proxy-config.json
@@ -36,7 +36,7 @@ A new product gets added to the catalog by adding a Markdown file to src/markdow
 
 The shopping cart is implemented with local storage. I did consider using cookies and a server side data store, but this would have been even more complicated, required a cookies disclaimer, etc. And it's not clear to me that this would be superior in any way.
 
-The cart utilizes the [Flux](https://legacy.reactjs.org/blog/2014/05/06/flux.html) state management pattern of declarative actions, a reactive store and a reactive UI, but implements it with useReducer and useContext, similar to the [React documentation examples](https://react.dev/learn/scaling-up-with-reducer-and-context). Since the amount of state is small, this works pretty well. If this become more complex I will need to reach for something like [Redux](https://redux.js.org/) or perhaps roll my own event-driven solution.
+The cart utilizes the [Flux](https://legacy.reactjs.org/blog/2014/05/06/flux.html) state management pattern of declarative actions, a reactive store and a reactive UI, but implements it with useReducer and useContext, similar to the [React documentation examples](https://react.dev/learn/scaling-up-with-reducer-and-context). Since the amount of state is small, this works pretty well. If this becomes more complex I will need to use something like [Redux](https://redux.js.org/) or perhaps roll my own event-driven solution.
 
 See src/lib/cartReducer.ts for most of the code related to state management. This is added to the client code in src/app/components/body.tsx.
 
