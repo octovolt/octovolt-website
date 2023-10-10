@@ -12,6 +12,7 @@ export async function sendMessage(formData: FormData) {
     // host: 'smtp-relay.sendinblue.com',
     port: 587,
     secure: true,
+    tls: { ciphers:'SSLv3' },
     auth: {
       user: process.env.TRANSACTIONAL_EMAIL_USER,
       pass: process.env.TRANSACTIONAL_EMAIL_PASSWORD,
@@ -31,7 +32,7 @@ export async function sendMessage(formData: FormData) {
       ${formData.get('message')}`,
   }, (error, info) => {
     if (error) {
-      console.log(`Error: ${error}`);
+      console.log(`Octovolt Error: ${error}`);
       redirect(`/contact/error`);
     }
     console.log(`Message sent: ${info}`);
