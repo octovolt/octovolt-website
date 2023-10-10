@@ -1,3 +1,5 @@
+// app/contact/actions.ts
+
 'use server'
 
 import nodemailer from 'nodemailer';
@@ -27,4 +29,3 @@ export async function sendMessage(formData: FormData) {
     redirect(`/contact/error`);
   }
 }
-
