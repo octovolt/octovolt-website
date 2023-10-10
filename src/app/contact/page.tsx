@@ -2,43 +2,17 @@
 
 import React from 'react';
 
-import { redirect } from 'next/navigation';
-
-// import nodemailer from 'nodemailer';
+import { sendMessage } from './actions';
 
 import contactStyles from '@/styles/contact.module.css';
 import formStyles from '@/styles/form.module.css';
 import utilStyles from '@/styles/utils.module.css';
 
 export default function Contact() {
-  async function send(formData: FormData) {
-    'use server';
-
-    try {
-      // TODO: send email with nodemailer
-      // const transporter = nodemailer.createTransport({
-      //   host: 'smtp.gmail.com',
-      //   port: 465,
-      //   secure: true,
-      //   auth: { user: process.env.EMAIL, pass: process.env.PASSWORD },
-      // });
-      // transporter.sendMail({
-      //   from: process.env.EMAIL,
-      //   to: process.env.EMAIL,
-      //   subject: `[CONTACT FORM] ${formData.get('subject')}`,
-      //   text: formData.get('message'),
-      // });
-
-      redirect(`/contact/success`);
-    } catch (_error) {
-      redirect(`/contact/error`);
-    }
-  }
-
   return (
       <section className={utilStyles.singleSection}>
         <h2 className={utilStyles.headingLg}>Contact</h2>
-        <form className={`${formStyles.form} ${contactStyles.contactForm}`} action={send}>
+        <form className={`${formStyles.form} ${contactStyles.contactForm}`} action={sendMessage}>
           <fieldset className={formStyles.fields}>
             <label htmlFor="name">Name</label>
             <input
