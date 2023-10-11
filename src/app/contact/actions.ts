@@ -8,8 +8,8 @@ import { redirect } from 'next/navigation';
 
 export async function sendMessage(formData: FormData) {
   const transporter = nodemailer.createTransport({
-    host: 'smtp-relay.brevo.com',
-    // host: 'smtp-relay.sendinblue.com',
+    // host: 'smtp-relay.brevo.com',
+    host: 'smtp-relay.sendinblue.com',
     port: 587,
     secure: true,
     tls: { ciphers:'SSLv3' },
