@@ -12,7 +12,7 @@
 
 import React from 'react';
 
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 
 import Header from '@/app/components/header';
 import { CartContext, CartDispatchContext } from '@/lib/cartContext';
@@ -29,6 +29,14 @@ interface CartReducerProviderProps {
 
 export default function Body({ children, ...props }: PropsWithChildren<CartReducerProviderProps>) {
   const [cart, dispatch] = useCartReducer();
+  useEffect(() => {
+    console.log(`
+  w e l c o m e   t o
+  ___   ___ _____ _____   _____  _  _____
+ / _ \\ / __|_   _/ _ \\ \\ / / _ \\| ||_   _|
+| (_) | (__  | || (_) \\ V / (_) | |__| |
+ \\___/ \\___| |_| \\___/ \\_/ \\___/|____|_|`);
+  }, []);
 
   return (
     <body onPointerDown={dismissMenu} style={{fontSize: 16}}>
