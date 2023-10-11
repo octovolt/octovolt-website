@@ -65,6 +65,7 @@ export default function Contact() {
             <input className={contactStyles.send} type="submit" value="Send" />
           </div>
         </form>
+        <p>Octovolt does not send spam, sell your data, or do anything nefarious with email addresses. This form simply sends me an email and your email address is not retained in any other way.</p>
       </section>
   );
 }
