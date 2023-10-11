@@ -4,6 +4,7 @@
 
 import React from 'react';
 
+import { Analytics } from '@vercel/analytics/react';
 import Body from '@/app/components/body'; // client component providing cart state management
 import Head from 'next/head';
 
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </Head>
       <Body name={name} tagline={tagline}>
         {children}
+        <Analytics />
       </Body>
     </html>
   );
