@@ -32,6 +32,7 @@ export async function sendMessage(formData: FormData) {
       }
     });
   }).catch((_error) => {
+    console.log('Catch: transporter.verify');
     redirect(`/contact/error`);
   });
 
@@ -56,8 +57,10 @@ export async function sendMessage(formData: FormData) {
       }
     });
   }).then((_info) => {
+    console.log('Then: transporter.sendMail');
     redirect(`/contact/success`);
   }).catch((_error) => {
+    console.log('Catch: transporter.sendMail');
     redirect(`/contact/error`);
   });
 }
