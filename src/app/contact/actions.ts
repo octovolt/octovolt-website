@@ -22,13 +22,17 @@ export async function sendMessage(formData: FormData) {
   await new Promise((resolve, reject) => {
     transporter.verify((error, success) => {
       if (error) {
-        console.log(error);
+        console.error(`
+          Nodemailer transporter not verified.
+          Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
+        `);
         reject(error);
       } else {
-        console.log("Server is ready to take our messages");
         resolve(success);
       }
     });
+  }).catch((_error) => {
+    redirect(`/contact/error`);
   });
 
   await new Promise((resolve, reject) => {
@@ -42,14 +46,18 @@ export async function sendMessage(formData: FormData) {
         ${formData.get('message')}`,
     }, (error, info) => {
       if (error) {
-        console.log(`Octovolt Error: ${error}`);
+        console.error(`
+          Nodemailer unable to send message.
+          Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
+        `);
         reject(error);
-        redirect(`/contact/error`);
       } else {
-        console.log(`Message sent: ${info}`);
         resolve(info);
-        redirect(`/contact/success`);
       }
     });
+  }).then((_info) => {
+    redirect(`/contact/success`);
+  }).catch((_error) => {
+    redirect(`/contact/error`);
   });
 }
