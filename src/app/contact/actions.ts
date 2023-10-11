@@ -1,5 +1,8 @@
 // app/contact/actions.ts
 
+// Note that process.env environment variables are set outside of the source code.
+// If using Vercel for hosting, these variables are set in the Vercel dashboard.
+
 'use server'
 
 import nodemailer from 'nodemailer';
@@ -30,12 +33,12 @@ export async function sendMessage(formData: FormData) {
 
   await new Promise((resolve, reject) => {
     transporter.sendMail({
-      from: `${formData.get('email')}`, // process.env.CONTACT_EMAIL_FROM,
+      from: `${formData.get('email')}`,
       to: process.env.CONTACT_EMAIL_TO,
-      subject: `[OCTOVOLT CONTACT FORM] ${formData.get('subject')}`,
+      subject: `[octovolt] ${formData.get('subject')}`,
       text: `
         From: ${formData.get('name')}
-        ----------------------------------------
+        ---
         ${formData.get('message')}`,
     }, (error, info) => {
       if (error) {
