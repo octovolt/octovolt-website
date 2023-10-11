@@ -11,7 +11,7 @@ export async function sendMessage(formData: FormData) {
     // host: 'smtp-relay.brevo.com',
     host: 'smtp-relay.sendinblue.com',
     port: 587,
-    secure: true,
+    // secure: true,
     // tls: { ciphers:'SSLv3' },
     auth: {
       user: process.env.TRANSACTIONAL_EMAIL_USER,
