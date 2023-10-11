@@ -18,24 +18,40 @@ export async function sendMessage(formData: FormData) {
       pass: process.env.TRANSACTIONAL_EMAIL_PASSWORD,
     },
   });
-  transporter.sendMail({
-    from: process.env.CONTACT_EMAIL_FROM,
-    to: process.env.CONTACT_EMAIL_TO,
-    subject: `[CONTACT FORM] ${formData.get('subject')}`,
-    text: `
-      Name: ${formData.get('name')}
-      Email: ${formData.get('email')}
-      Subject: ${formData.get('subject')}
-      -------------------------------------
-      Message:
 
-      ${formData.get('message')}`,
-  }, (error, info) => {
-    if (error) {
-      console.log(`Octovolt Error: ${error}`);
-      redirect(`/contact/error`);
-    }
-    console.log(`Message sent: ${info}`);
-    redirect(`/contact/success`);
+  await new Promise((resolve, reject) => {
+    transporter.verify((error, success) => {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        console.log("Server is ready to take our messages");
+        resolve(success);
+      }
+    });
+  });
+
+  await new Promise((resolve, reject) => {
+    transporter.sendMail({
+      from: process.env.CONTACT_EMAIL_FROM,
+      to: process.env.CONTACT_EMAIL_TO,
+      subject: `[CONTACT FORM] ${formData.get('subject')}`,
+      text: `
+        Name: ${formData.get('name')}
+        Email: ${formData.get('email')}
+        Subject: ${formData.get('subject')}
+        -------------------------------------
+        Message: ${formData.get('message')}`,
+    }, (error, info) => {
+      if (error) {
+        console.log(`Octovolt Error: ${error}`);
+        reject(error);
+        redirect(`/contact/error`);
+      } else {
+        console.log(`Message sent: ${info}`);
+        resolve(info);
+        redirect(`/contact/success`);
+      }
+    });
   });
 }
