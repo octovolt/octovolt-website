@@ -8,6 +8,7 @@
 import nodemailer from 'nodemailer';
 
 import { redirect } from 'next/navigation';
+import { SentMessageInfo } from 'nodemailer/lib/smtp-transport';
 
 export async function sendMessage(formData: FormData) {
   const transporter = nodemailer.createTransport({
@@ -28,6 +29,7 @@ export async function sendMessage(formData: FormData) {
         `);
         reject(error);
       } else {
+        console.log('Trransporter verified.')
         resolve(success);
       }
     });
@@ -36,7 +38,7 @@ export async function sendMessage(formData: FormData) {
     redirect(`/contact/error`);
   });
 
-  await new Promise((resolve, reject) => {
+  await new Promise<SentMessageInfo>((resolve, reject) => {
     transporter.sendMail({
       from: `${formData.get('email')}`,
       to: process.env.CONTACT_EMAIL_TO,
@@ -47,20 +49,22 @@ export async function sendMessage(formData: FormData) {
         ${formData.get('message')}`,
     }, (error, info) => {
       if (error) {
-        console.error(`
-          Nodemailer unable to send message.
-          Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
-        `);
         reject(error);
       } else {
         resolve(info);
       }
     });
-  }).then((_info) => {
-    console.log('Then: transporter.sendMail');
+  }).then((info: SentMessageInfo) => {
+    console.log(`
+      Then: transporter.sendMail
+      Message sent: ${JSON.stringify(info)}
+    `);
     redirect(`/contact/success`);
-  }).catch((_error) => {
-    console.log('Catch: transporter.sendMail');
+  }).catch((error: Error) => {
+    console.error(`
+      Nodemailer unable to send message.
+      Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
+    `);
     redirect(`/contact/error`);
   });
 }
