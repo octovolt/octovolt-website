@@ -20,22 +20,22 @@ export async function sendMessage(formData: FormData) {
     },
   });
 
+  let success = false;
+
   await new Promise((resolve, reject) => {
     transporter.verify((error, success) => {
       if (error) {
-        console.error(`
-          Nodemailer transporter not verified.
-          Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
-        `);
         reject(error);
       } else {
-        console.log('Trransporter verified.')
         resolve(success);
       }
     });
-  }).catch((_error) => {
-    console.log('Catch: transporter.verify');
-    redirect(`/contact/error`);
+  }).catch((error: Error) => {
+    console.error(`
+      Nodemailer transporter not verfified.
+      Error: ${error.name} - ${error.message} - ${error.cause}
+      ${error.stack}
+    `);
   });
 
   await new Promise<SentMessageInfo>((resolve, reject) => {
@@ -54,17 +54,17 @@ export async function sendMessage(formData: FormData) {
         resolve(info);
       }
     });
-  }).then((info: SentMessageInfo) => {
-    console.log(`
-      Then: transporter.sendMail
-      Message sent: ${JSON.stringify(info)}
-    `);
-    redirect(`/contact/success`);
+  }).then((_info: SentMessageInfo) => {
+    success = true;
   }).catch((error: Error) => {
     console.error(`
       Nodemailer unable to send message.
-      Error: ${error.name} - ${error.message} - ${error.cause} - ${error.stack}
+      Error: ${error.name} - ${error.message} - ${error.cause}
+      ${error.stack}
     `);
-    redirect(`/contact/error`);
   });
+
+  console.log('all done! success:', success);
+
+  redirect(success ? '/contact/success' : '/contact/error');
 }
