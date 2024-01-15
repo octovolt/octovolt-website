@@ -1,5 +1,13 @@
 /* home.module.css */
 
+.mainHome {
+  padding-top: 1rem;
+}
+
+.mainHome h2 {
+  display: none;
+}
+
 h2.welcome {
   margin: 0;
   padding-top: 3rem;

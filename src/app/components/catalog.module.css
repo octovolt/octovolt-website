@@ -12,8 +12,10 @@ main .catalog {
   padding: 2rem 2rem 1rem;
 }
 
-.catalog .catalogItem:hover {
-  box-shadow: 0rem 0rem 10px 3px #ccc;
+@media (hover: hover) {
+  .catalog .catalogItem:hover {
+    box-shadow: 0rem 0rem 10px 3px #ccc;
+  }
 }
 
 .catalogItem a {
