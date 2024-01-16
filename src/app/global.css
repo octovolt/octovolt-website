@@ -67,3 +67,44 @@ iframe.iframeVideo {
   width: 100%;
   height: 100%;
 }
+
+button.custom {
+  height: 2.37rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-width: 1px;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  border: 0;
+}
+
+button.custom:disabled {
+  opacity: 0.5;
+}
+
+.button.lightgray {
+  background: #ccc;
+  color: black;
+}
+
+.button.lightgray:active {
+  background: #eee;
+}
+
+button.gray {
+  background: #555;
+  color: white;
+}
+
+button.gray:active {
+  background: #666;
+}
+
+button.green {
+  background: darkgreen;
+  color: white;
+}
+
+button.green:active {
+  background: forestgreen;
+}

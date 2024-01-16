@@ -1,16 +1,18 @@
 'use client';
 
 import AmountManager from '@/app/components/amountManager';
-
-import * as React from 'react';
+import CartDialog from '@/app/components/cartDialog';
 
 import { CartActions } from '@/lib/cartReducer';
 import { CartDispatchContext } from '@/lib/cartContext';
-import { useContext, useState } from "react";
 
 import { Product } from '@/lib/products';
 
+import { useRouter } from 'next/navigation';
+import { useContext, useState } from "react";
+
 import productStyles from '@/styles/product.module.css';
+import { on } from 'events';
 
 interface AddToCartProps {
   productData: Product;
@@ -18,6 +20,7 @@ interface AddToCartProps {
 
 export default function AddToCart({ productData }: AddToCartProps) {
   const dispatch = useContext(CartDispatchContext);
+  const router = useRouter();
 
   // The state of how many items have been selected.
   const [amount, setAmount] = useState(1);
@@ -31,6 +34,9 @@ export default function AddToCart({ productData }: AddToCartProps) {
       price: Object.values(initialOption)[0],
     };
   });
+
+  // The state of the cart dialog.
+  const [dialogDisplay, setDialogDisplay] = useState(false);
 
   // DOM event handlers
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -60,7 +66,8 @@ export default function AddToCart({ productData }: AddToCartProps) {
     }
   }
 
-  const onAddToCart = (e: React.MouseEvent<HTMLElement>) => {
+  const onAddToCart = (e: React.PointerEvent<HTMLElement>) => {
+    setDialogDisplay(true);
     dispatch({
       type: CartActions.ADDED,
       amount: amount,
@@ -68,21 +75,39 @@ export default function AddToCart({ productData }: AddToCartProps) {
     })
   }
 
+  function onDialogClose(e: React.PointerEvent<HTMLElement>) {
+    e.stopPropagation();
+    setDialogDisplay(false);
+    console.log(dialogDisplay);
+  }
+
+  function onDialogGoToCart(e: React.PointerEvent<HTMLElement>) {
+    e.stopPropagation();
+    setDialogDisplay(false);
+    router.push('/cart');
+  }
+
   return (
-    <div className={productStyles.purchasing}>
-      <select className={productStyles.purchasingOptions} onChange={onSelect}>
-        {productData.purchasingOptions.map((option) => {
-          const key = Object.keys(option)[0];
-          return (
-            <option key={key} value={key}>
-              {key}: ${Object.values(option)[0]}
-            </option>
-          );
-        })}
-      </select>
-      <AmountManager amount={amount} onDecrement={onDecrement} onIncrement={onIncrement} />
-      <button className={productStyles.addToCart} onClick={onAddToCart}>Add to Cart</button>
-    </div>
+    <>
+      <div className={productStyles.purchasing}>
+        <select className={productStyles.purchasingOptions} onChange={onSelect}>
+          {productData.purchasingOptions.map((option) => {
+            const key = Object.keys(option)[0];
+            return (
+              <option key={key} value={key}>
+                {key}: ${Object.values(option)[0]}
+              </option>
+            );
+          })}
+        </select>
+        <AmountManager amount={amount} onDecrement={onDecrement} onIncrement={onIncrement} />
+        <button className={productStyles.addToCart + ' custom green'} onPointerUp={onAddToCart}>Add to Cart</button>
+      </div>
+      <CartDialog display={dialogDisplay} onClose={onDialogClose} onGoToCart={onDialogGoToCart}>
+        <p>{amount} item{amount > 1 ? 's' : ''} added to cart:</p>
+        <p>{selection.name}: {selection.option} ({selection.price})</p>
+      </CartDialog>
+    </>
   )
 
 }

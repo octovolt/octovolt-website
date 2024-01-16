@@ -181,9 +181,9 @@ form .hiddenFields, .paymentOptionsForm .hiddenFields {
   font-size: 0.9rem;
   border-radius: 0.5rem;
   padding: 0.4rem 1rem;
-  border-width: 1px;
   font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
   align-self: flex-end;
+  border: 0;
 }
 
 .calculateButton {

@@ -67,18 +67,7 @@
 }
 
 .addToCart {
-  background: darkgreen;
-  color: white;
-  font-size: 0.9rem;
   margin: 1rem 1rem 0 0;
-  border-radius: 0.5rem;
-  padding: 0.4rem 1rem;
-  border-width: 1px;
-  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
-}
-
-.addToCart:active {
-  background: forestgreen;
 }
 
 .status {
