@@ -90,22 +90,24 @@ export default function AddToCart({ productData }: AddToCartProps) {
   return (
     <>
       <div className={productStyles.purchasing}>
-        <select className={productStyles.purchasingOptions} onChange={onSelect}>
-          {productData.purchasingOptions.map((option) => {
-            const key = Object.keys(option)[0];
-            return (
-              <option key={key} value={key}>
-                {key}: ${Object.values(option)[0]}
-              </option>
-            );
-          })}
-        </select>
+        <div className={productStyles.selectContainer}>
+          <select className={productStyles.purchasingOptions} onChange={onSelect}>
+            {productData.purchasingOptions.map((option) => {
+              const key = Object.keys(option)[0];
+              return (
+                <option key={key} value={key}>
+                  {key}: ${Object.values(option)[0]}
+                </option>
+              );
+            })}
+          </select>
+        </div>
         <AmountManager amount={amount} onDecrement={onDecrement} onIncrement={onIncrement} />
         <button className={productStyles.addToCart + ' custom green'} onPointerUp={onAddToCart}>Add to Cart</button>
       </div>
       <CartDialog display={dialogDisplay} onClose={onDialogClose} onGoToCart={onDialogGoToCart}>
         <p>{amount} item{amount > 1 ? 's' : ''} added to cart:</p>
-        <p>{selection.name}: {selection.option} ({selection.price})</p>
+        <p>{selection.name}: {selection.option} ({'$' + selection.price})</p>
       </CartDialog>
     </>
   )

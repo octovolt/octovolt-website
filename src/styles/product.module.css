@@ -33,11 +33,27 @@
   flex-wrap: wrap;
 }
 
+.selectContainer {
+  position:relative;
+}
+
 .purchasingOptions {
   font-size: 0.9rem;
-  padding: 0.4rem 0.2rem;
+  padding: 0.6rem 1.5rem 0.6rem 0.6rem;
   margin: 1rem 1rem 0 0;
   font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
+  -webkit-appearance: none;
+}
+
+.selectContainer::after {
+  content: '▽';
+  position: absolute;
+  right: 1.5rem;
+  top: 1.3rem;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 9;
+  color: black;
 }
 
 .purchasing .amountManager {
