@@ -28,7 +28,7 @@ export default async function ProductInfo( { productData }: Props) {
           />
         </div>
         <div className={productStyles.coreInfo}>
-          <h1 className={utilStyles.headingXl}>{productData.name}</h1>
+          <h1 className={utilStyles.headingMd}>{productData.name}</h1>
           <ul>
             {productData.features.map((feature) => (<li key={feature}>{feature}</li>))}
           </ul>
