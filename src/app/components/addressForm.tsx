@@ -5,6 +5,8 @@ import TextInput from "@/app/components/textInput";
 import { useState } from "react";
 import { fedexCountries, countryProvinces } from "@/lib/fedex";
 
+import formStyles from "@/styles/form.module.css";
+
 export enum AddressFormField {
   Name = "name",
   Country = "country",
@@ -124,63 +126,71 @@ export default function AddressForm({
       {children}
       {showFields && (
         <fieldset className={fieldSetClassNames}>
-          <AddressTextInput
-            classNames={textFieldClassNames}
-            id={AddressFormField.Name}
-            label="Name"
-            name={AddressFormField.Name}
-            type="text"
-            disabled={disabled}
-            placeholder="Name"
-            onBlur={onTextFieldBlur}
-            onChange={onTextFieldChange}
-            onFocus={onTextFieldFocus}
-          />
-          <label htmlFor="country">Country</label>
-          <select
-            required
-            disabled={disabled}
-            className={textFieldClassNames}
-            id={AddressFormField.Country}
-            name={AddressFormField.Country}
-            aria-label="Country"
-            aria-required="true"
-            onChange={onCountryChange}
-            onBlur={onSelectBlur}>
-            <option value="">--</option>
-            {countryOptions}
-          </select>
-          <AddressTextInput
-            classNames={textFieldClassNames}
-            id={AddressFormField.Address}
-            label="Address"
-            name={AddressFormField.Address}
-            type="text"
-            disabled={disabled}
-            placeholder="Address"
-            onBlur={onTextFieldBlur}
-            onChange={onTextFieldChange}
-            onFocus={onTextFieldFocus}
-          />
-          <AddressTextInput
-            classNames={textFieldClassNames}
-            id={AddressFormField.City}
-            label="City"
-            name={AddressFormField.City}
-            type="text"
-            disabled={disabled}
-            placeholder="City"
-            onBlur={onTextFieldBlur}
-            onChange={onTextFieldChange}
-            onFocus={onTextFieldFocus}
-          />
+          <div className={formStyles.fieldgroup}>
+            <AddressTextInput
+              classNames={textFieldClassNames}
+              id={AddressFormField.Name}
+              label="Name"
+              name={AddressFormField.Name}
+              type="text"
+              disabled={disabled}
+              placeholder="Name"
+              onBlur={onTextFieldBlur}
+              onChange={onTextFieldChange}
+              onFocus={onTextFieldFocus}
+            />
+          </div>
+          <div className={formStyles.fieldgroup + ' ' + formStyles.selectFieldgroup}>
+            <label htmlFor="country">Country</label>
+            <select
+              required
+              disabled={disabled}
+              className={textFieldClassNames + ' ' + formStyles.select}
+              id={AddressFormField.Country}
+              name={AddressFormField.Country}
+              aria-label="Country"
+              aria-required="true"
+              onChange={onCountryChange}
+              onBlur={onSelectBlur}>
+              <option value="">--</option>
+              {countryOptions}
+            </select>
+          </div>
+          <div className={formStyles.fieldgroup}>
+            <AddressTextInput
+              classNames={textFieldClassNames}
+              id={AddressFormField.Address}
+              label="Address"
+              name={AddressFormField.Address}
+              type="text"
+              disabled={disabled}
+              placeholder="Address"
+              onBlur={onTextFieldBlur}
+              onChange={onTextFieldChange}
+              onFocus={onTextFieldFocus}
+            />
+          </div>
+          <div className={formStyles.fieldgroup}>
+            <AddressTextInput
+              classNames={textFieldClassNames}
+              id={AddressFormField.City}
+              label="City"
+              name={AddressFormField.City}
+              type="text"
+              disabled={disabled}
+              placeholder="City"
+              onBlur={onTextFieldBlur}
+              onChange={onTextFieldChange}
+              onFocus={onTextFieldFocus}
+            />
+          </div>
           {provinceRequired && (
-            <>
+            <div className={formStyles.fieldgroup + ' ' + formStyles.selectFieldgroup}>
               <label htmlFor="province">State / Province</label>
               <select
                 required={provinceRequired}
                 disabled={disabled}
-                className={textFieldClassNames}
+                className={textFieldClassNames + ' ' + formStyles.select}
                 id={AddressFormField.Province}
                 name={AddressFormField.Province}
                 aria-label="State or Province"
@@ -198,20 +208,22 @@ export default function AddressForm({
                     }
                 )}
               </select>
-            </>
+            </div>
           )}
-          <AddressTextInput
-            classNames={textFieldClassNames}
-            id={AddressFormField.PostalCode}
-            label="Postal Code"
-            name={AddressFormField.PostalCode}
-            type="text"
-            disabled={disabled}
-            placeholder="Postal Code"
-            onBlur={onTextFieldBlur}
-            onChange={onTextFieldChange}
-            onFocus={onTextFieldFocus}
-          />
+          <div className={formStyles.fieldgroup}>
+            <AddressTextInput
+              classNames={textFieldClassNames}
+              id={AddressFormField.PostalCode}
+              label="Postal Code"
+              name={AddressFormField.PostalCode}
+              type="text"
+              disabled={disabled}
+              placeholder="Postal Code"
+              onBlur={onTextFieldBlur}
+              onChange={onTextFieldChange}
+              onFocus={onTextFieldFocus}
+            />
+          </div>
         </fieldset>
       )}
     </form>

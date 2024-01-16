@@ -8,6 +8,8 @@ import TextInput from '@/app/components/textInput';
 
 import { useState } from 'react';
 
+import formStyles from '@/styles/form.module.css';
+
 export enum PaymentFormField {
   PaymentMethod = "paymentMethod",
   CardName = "cardName",
@@ -142,57 +144,65 @@ export default function PaymentForm({children, ...props}: PaymentFormProps): JSX
     <form className={props.formClassNames} action={props.action}>
       {children}
       <fieldset className={props.fieldSetClassNames} style={{display: props.showFields ? 'flex' : 'none'}}>
-        <PaymentTextInput
-          classNames={props.textFieldClassNames}
-          id={PaymentFormField.CardName}
-          label="Name on Card"
-          name={PaymentFormField.CardName}
-          type="text"
-          placeholder="First Last"
-          pattern={visaNamePattern}
-          onChange={onCardFieldChange}
-          onBlur={onCardFieldBlur}
-          onFocus={onCardFieldFocus}
-        />
-        <PaymentTextInput
-          classNames={props.textFieldClassNames}
-          id={PaymentFormField.CardNumber}
-          label="Card Number"
-          name={PaymentFormField.CardNumber}
-          type="tel"
-          placeholder="#### #### #### ####"
-          exactLength={19}
-          pattern={visaOrMastercardNumberPattern}
-          onChange={onCardNumberChange}
-          onBlur={onCardFieldBlur}
-          onFocus={onCardFieldFocus}
-        />
-        <PaymentTextInput
-          classNames={props.textFieldClassNames}
-          id={PaymentFormField.CardExpiration}
-          label="Exp. Date"
-          name={PaymentFormField.CardExpiration}
-          type="tel"
-          placeholder="MM/YY"
-          exactLength={5}
-          pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$"
-          onChange={onExpireDateChange}
-          onBlur={onCardFieldBlur}
-          onFocus={onCardFieldFocus}
-        />
-        <PaymentTextInput
-          classNames={props.textFieldClassNames}
-          id={PaymentFormField.CardSecurityCode}
-          label="Security Code"
-          name={PaymentFormField.CardSecurityCode}
-          type="tel"
-          placeholder="###"
-          exactLength={3}
-          pattern="^[0-9]{3}$"
-          onChange={onCardFieldChange}
-          onBlur={onCardFieldBlur}
-          onFocus={onCardFieldFocus}
-        />
+        <div className={formStyles.fieldgroup}>
+          <PaymentTextInput
+            classNames={props.textFieldClassNames}
+            id={PaymentFormField.CardName}
+            label="Name on Card"
+            name={PaymentFormField.CardName}
+            type="text"
+            placeholder="First Last"
+            pattern={visaNamePattern}
+            onChange={onCardFieldChange}
+            onBlur={onCardFieldBlur}
+            onFocus={onCardFieldFocus}
+          />
+        </div>
+        <div className={formStyles.fieldgroup}>
+          <PaymentTextInput
+            classNames={props.textFieldClassNames}
+            id={PaymentFormField.CardNumber}
+            label="Card Number"
+            name={PaymentFormField.CardNumber}
+            type="tel"
+            placeholder="#### #### #### ####"
+            exactLength={19}
+            pattern={visaOrMastercardNumberPattern}
+            onChange={onCardNumberChange}
+            onBlur={onCardFieldBlur}
+            onFocus={onCardFieldFocus}
+          />
+        </div>
+        <div className={formStyles.fieldgroup}>
+          <PaymentTextInput
+            classNames={props.textFieldClassNames}
+            id={PaymentFormField.CardExpiration}
+            label="Exp. Date"
+            name={PaymentFormField.CardExpiration}
+            type="tel"
+            placeholder="MM/YY"
+            exactLength={5}
+            pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$"
+            onChange={onExpireDateChange}
+            onBlur={onCardFieldBlur}
+            onFocus={onCardFieldFocus}
+          />
+        </div>
+        <div className={formStyles.fieldgroup}>
+          <PaymentTextInput
+            classNames={props.textFieldClassNames}
+            id={PaymentFormField.CardSecurityCode}
+            label="Security Code"
+            name={PaymentFormField.CardSecurityCode}
+            type="tel"
+            placeholder="###"
+            exactLength={3}
+            pattern="^[0-9]{3}$"
+            onChange={onCardFieldChange}
+            onBlur={onCardFieldBlur}
+            onFocus={onCardFieldFocus}
+          />
+        </div>
       </fieldset>
     </form>
   )

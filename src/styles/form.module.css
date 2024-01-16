@@ -11,18 +11,26 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap:wrap;
+}
+
+.fieldgroup {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  position: relative;
 }
 
 .fields label {
   width: 6rem;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
   flex-grow: 1;
-  font-size: 1rem;
-  display: flex;
+  font-size: 16px;
   flex-wrap: wrap;
-  align-content: center;
-  margin-bottom: 1rem;
   margin-right: 1rem;
 }
 
@@ -37,20 +45,51 @@
   font-size: 16px;
   border: 1px solid var(--color-border);
   border-radius: 0.2rem;
-  margin-bottom: 1rem;
+  flex-basis: 100px;
 }
 
 .textField {
   height: 3rem;
+  padding: 0 1rem;
 }
 
 .textArea {
   height: 8rem;
+  padding: 1rem 1rem;
 }
 
-@media (max-width: 439px) {
+.selectFieldgroup select {
+  width: 12rem;
+  -webkit-appearance: none;
+}
+
+.selectFieldgroup::after {
+  content: '▽';
+  position: absolute;
+  right: 0.5rem;
+  top: 0.7rem;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 9;
+  color: black;
+}
+
+@media (max-width: 533px) {
+  .fieldgroup {
+    flex-direction: column;
+    flex-grow: 0;
+  }
+  .textField, .textArea, .fields label {
+    min-width: 100%;
+    flex-basis: auto;
+  }
   .fields label {
     margin-bottom: 0.2rem;
   }
+  .selectFieldgroup::after {
+    top: 2.5rem;
+  }
 }
+
+
 
