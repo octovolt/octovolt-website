@@ -111,7 +111,7 @@ export default function Cart(): JSX.Element {
             <Subtotal subtotal={subtotal} shippingCost={-1} taxes={-1} />
             <div className={cartStyles.callToActionContainer}>
               <button
-                className={cartStyles.nextButton}
+                className={cartStyles.nextButton + ' custom green'}
                 disabled={cart.length === 0}
                 onClick={onNext}>
                   Go to Shipping

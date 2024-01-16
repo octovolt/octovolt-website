@@ -78,8 +78,8 @@ button.custom {
   border: 0;
 }
 
-button.custom:disabled {
-  opacity: 0.5;
+button.custom:disabled, button.custom[disabled]{
+  opacity: 0.6;
 }
 
 .button.lightgray {

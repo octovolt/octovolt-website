@@ -33,9 +33,9 @@ function CtaButton({ ...props }): JSX.Element {
   return (
     <div className={cartStyles.callToActionContainer}>
         {props.taxes >= 0 && props.shippingCost >= 0 ? (
-          <button className={cartStyles.checkoutButton} disabled={!props.shippingAddressValid || props.cartLength === 0} onClick={props.onCheckout}>Go to Checkout</button>
+          <button className={cartStyles.checkoutButton + ' custom green'} disabled={!props.shippingAddressValid || props.cartLength === 0} onClick={props.onCheckout}>Go to Checkout</button>
         ) : (
-          <button className={cartStyles.calculateButton} disabled={props.cartLength === 0} onClick={props.onCalculate}>Calculate Total</button>
+          <button className={cartStyles.calculateButton + ' custom lightgray'} disabled={props.cartLength === 0} onClick={props.onCalculate}>Calculate Total</button>
         )}
     </div>
   )

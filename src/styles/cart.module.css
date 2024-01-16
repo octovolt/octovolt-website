@@ -175,37 +175,12 @@ form .hiddenFields, .paymentOptionsForm .hiddenFields {
   display: none;
 }
 
-/* buttons -- TODO: abstract the green button and allow the calculate button to override */
-
 .calculateButton, .checkoutButton, .nextButton {
-  font-size: 0.9rem;
-  border-radius: 0.5rem;
-  padding: 0.4rem 1rem;
-  font-family: Menlo, Monaco, Consolas, Liberation Mono, Lucida Console, monospace;
   align-self: flex-end;
-  border: 0;
 }
 
-.calculateButton {
-  background: #ccc;
-  color: black;
-}
-
-.calculateButton:active {
-  background: #eee;
-}
-
-.checkoutButton, .nextButton {
-  background: darkgreen;
-  color: white;
-}
-
-.checkoutButton:active, .nextButton:active {
-  background: forestgreen;
-}
-
-.checkoutButton:disabled, .nextButton:disabled, .checkoutButton[disabled], .nextButton[disabled] {
-  opacity: 0.6;
+div.callToActionContainer button.calculateButton {
+  border: 1px solid var(--color-border);
 }
 
 .mainColumn form h3 {

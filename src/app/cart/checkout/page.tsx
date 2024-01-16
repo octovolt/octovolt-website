@@ -31,7 +31,7 @@ function CtaButton({ ...props }: CtaProps): JSX.Element {
   return (
     <div className={cartStyles.callToActionContainer}>
       <button
-        className={cartStyles.nextButton}
+        className={cartStyles.nextButton + ' custom green'}
         disabled={!props.billingAddressValid || !props.paymentInfoValid} onClick={props.onCtaClick}>
         {props.paymentInfo.paymentMethod === "creditCard" ? `Place Order` : `Continue to PayPal`}
       </button>
