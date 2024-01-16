@@ -72,10 +72,11 @@ ul.menuDropDown {
   z-index:1;
   padding: 0;
   border-radius: 5px 0 5px 5px;
+  box-shadow: 0 0.5rem 1rem 0.2rem rgba(0,0,0,0.4);
 }
 
 .hamburger:has(.pressed), ul.menuDropDown {
-  background-color: #aaa;
+  background-color: #ccc;
 }
 
 ul.menuDropDown .menuItem {
@@ -91,7 +92,6 @@ ul.menuDropDown a {
   text-decoration: none;
   justify-content: flex-end;
   padding: 1rem 2rem;
-  color: #fff;
   width: 100%;
 }
 
