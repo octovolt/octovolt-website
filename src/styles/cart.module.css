@@ -189,13 +189,6 @@ div.callToActionContainer button.calculateButton {
   font-weight: 600;
 }
 
-/* .billingAddress {
-  min-height: 8.53rem;
-  padding: 1rem 1rem 0;
-} */
-
-/* TODO: convert to rem max-widths */
-
 @media (max-width: 535px) {
   .itemDetails {
     padding-top: 0.5rem;
