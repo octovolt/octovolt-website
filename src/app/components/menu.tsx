@@ -5,12 +5,18 @@
 import React from 'react';
 
 import CartBadge from './cartBadge';
-import CartNumber from './cartNumber';
 import Link from 'next/link';
+
+import { CartContext } from '../../lib/cartContext';
+import { useContext } from 'react';
 
 import styles from './header.module.css';
 
 export default function Menu() {
+  const cart = useContext(CartContext);
+  const itemsInCart = cart ? cart.length : 0;
+  const cartNumber = itemsInCart > 0 ? ` (${itemsInCart})` : '';
+
   return (
     <>
       <ul className={styles.menu}>
@@ -18,7 +24,7 @@ export default function Menu() {
         <li className={styles.menuItem}><Link href={"/about"}>About</Link></li>
         <li className={styles.menuItem}><Link href={"/news"}>News</Link></li>
         <li className={styles.menuItem}><Link href={"/contact"}>Contact</Link></li>
-        <li className={styles.menuItem}><Link href={"/cart"}>Cart<CartNumber /></Link></li>
+        <li className={styles.menuItem}><Link href={"/cart"}>Cart{cartNumber}</Link></li>
       </ul>
       <div
         className={styles.hamburger}
