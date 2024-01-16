@@ -98,7 +98,7 @@ export default function Cart(): JSX.Element {
       <section className={cartStyles.cartContainer}>
         <div className={cartStyles.headingContainer}>
           <h2 className={utilStyles.headingLg}>Cart</h2>
-          <CartBreadCrumbs stepName="Cart" nextEnabled={true} />
+          <CartBreadCrumbs stepName="Cart" nextEnabled={cart.length > 0} />
         </div>
         <div className={utilStyles.twoColumnLayout}>
           <div className={utilStyles.mainColumn}>
@@ -110,7 +110,12 @@ export default function Cart(): JSX.Element {
           <div className={utilStyles.sideColumn}>
             <Subtotal subtotal={subtotal} shippingCost={-1} taxes={-1} />
             <div className={cartStyles.callToActionContainer}>
-              <button className={cartStyles.nextButton} onClick={onNext}>Go to Shipping</button>
+              <button
+                className={cartStyles.nextButton}
+                disabled={cart.length === 0}
+                onClick={onNext}>
+                  Go to Shipping
+              </button>
             </div>
           </div>
         </div>
