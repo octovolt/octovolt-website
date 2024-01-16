@@ -1,10 +1,10 @@
 ---
-title: '4hp Prototype of Two Comparator Effect'
+title: 'Eurorack Prototype of Two Comparator Effect'
 date: '2024-01-16'
 ---
 
 I have been working on a version of cyberboy666's
-:a[two_comparator_effect]{.https://github.com/cyberboy666/two_comparator_effect}, which I call TCE.
+:a[two_comparator_effect]{.https://github.com/cyberboy666/two_comparator_effect}, which I call _TCE_.
 The :a[prototype is working]{href="https://www.youtube.com/watch?v=mtZ2dQ727Hc"}, and I have used it
 in some of my live video art performances in support of live bands and DJs at shows and parties at
 :a[Light Rail Studios]{.https://www.lightrailstudios.com} in San Francisco. It's been a great
@@ -41,7 +41,7 @@ module. In the spirit of this, I decided to put the open hardware logo on the fr
 than my normal octopus logo. I also have the
 :a[KiCAD files published on GitHub]{.https://github.com/octovolt/TCE}.
 
-The front panel holes were a little too small for Alpha 9mm potentiometers, so I had to use tall
+The front panel holes were a little bit too small for Alpha 9mm potentiometers, so I had to use tall
 trim pots instead. I have revised the front panel to allow the Alpha pots, and I was able to
 improve the PCB a bit as well. As a result, it should be a little bit easier to build. And with the
 Alpha potentiometers offering more connections between the PCB and the front panel, the whole thing
@@ -51,7 +51,7 @@ Currently, as I write this post, I'm waiting for the new PCBs and panels to come
 fabrication house. When I get them back and test them, assuming everything works as it should, this
 will be the second Octovolt module. As you might imagine, I'm pretty excited about it.
 
-I plan to create a different version of TCE (still thinking about the name, but maybe Thresholds)
+I plan to create a different version of _TCE_ (still thinking about the name, but maybe _Thresholds_)
 which will be designed for 0-1v RGBY signals rather than composite video, and it will offer CV
 control and some alternate outputs.
 
@@ -70,8 +70,8 @@ and the documentation for that is also
 :a[up on Github]{.https://github.com/octovolt/SlowEdgeStripboard}. But a better, more polished
 version of it is coming soon.
 
-Another thing that has emerged through my work on the TCE, and the other circuits where I use
-comparators, is the fact that the comparator in the TCE (and the original two_comparator_effect) is
+Another thing that has emerged through my work on _TCE_, and the other circuits where I use
+comparators, is the fact that the comparator in _TCE_ (and the original _two_comparator_effect_) is
 actually a little bit too slow for video. The comparator in question is the
 :a[LM339]{.https://www.ti.com/lit/ds/symlink/lm339.pdf}, which is cheap, widely available, and comes
 in a through-hole quad package. Unfortunately, it has a response time of about 1.3 microseconds,
@@ -79,7 +79,7 @@ and for accurate video work we would want a response time under 83 nanoseconds (
 calculations for NTSC 720×480 video -- please [contact](/contact) me if I'm wrong). The resulting
 image from the LM339 is shifted very slightly to the right. You can see this pretty clearly in
 :a[this post]{.https://www.instagram.com/p/C0Ju9wTrKbt/}, where the blue and red signals are going
-through the LM339, while the green is not. Still, it has a cool aesthetic. The TCE's slow comparator
+through the LM339, while the green is not. Still, it has a cool aesthetic. _TCE_'s slow comparator
 will not be perceivable unless one mixes the output with the original signal (or an accurate version
 of the original), like I did in that post. Regardless, with the circuits I'm currently developing,
 I'm going to use a faster comparator. I'm still working out which one to use.
