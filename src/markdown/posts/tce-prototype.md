@@ -36,7 +36,7 @@ get his :a[version]{.https://underscores.shop/product/two_comparator_effect} on 
 :a[underscores]{.https://underscores.shop} website, where you'll also find a lot of other excellent
 circuits for video art.
 
-I hope I have contributed to the lineage of of this circuit's design by converting it to a Eurorack
+I hope I have contributed to the lineage of this circuit's design by converting it to a Eurorack
 module. In the spirit of this, I decided to put the open hardware logo on the front panel rather
 than my normal octopus logo. I also have the
 :a[KiCAD files published on GitHub]{.https://github.com/octovolt/TCE}.
