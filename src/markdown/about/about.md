@@ -10,4 +10,4 @@ I also request that folks do not simply clone my work and then directly compete 
 
 But of course if you want to clone the modules simply for your own personal use, this is totally okay with me and aligned with the license.
 
-:a[OCTOVOLT on GitHub]{.https://github.com/octopus-arts}
+:a[OCTOVOLT on GitHub]{.https://github.com/octovolt}
