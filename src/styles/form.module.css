@@ -51,13 +51,6 @@
 @media (max-width: 439px) {
   .fields label {
     margin-bottom: 0.2rem;
-    font-size: 0.9rem;
-  }
-  .textField, .textArea {
-    font-size: 0.9rem;
-  }
-  .textField {
-    height: 2.5rem;
   }
 }
 
