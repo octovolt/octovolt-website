@@ -135,6 +135,21 @@ ul.menuDropDown li + li {
   border-radius: 5px 5px 0 0;
 }
 
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
 @media (max-width:1170px) {
   .innerHeader {
     max-width: 60rem;

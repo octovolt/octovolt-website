@@ -4,6 +4,7 @@
 
 import React from 'react';
 
+import CartBadge from './cartBadge';
 import CartNumber from './cartNumber';
 import Link from 'next/link';
 
@@ -17,7 +18,7 @@ export default function Menu() {
         <li className={styles.menuItem}><Link href={"/about"}>About</Link></li>
         <li className={styles.menuItem}><Link href={"/news"}>News</Link></li>
         <li className={styles.menuItem}><Link href={"/contact"}>Contact</Link></li>
-        <li className={styles.menuItem}><Link href={"/cart"}>Cart<CartNumber></CartNumber></Link></li>
+        <li className={styles.menuItem}><Link href={"/cart"}>Cart<CartNumber /></Link></li>
       </ul>
       <div
         className={styles.hamburger}
@@ -27,6 +28,7 @@ export default function Menu() {
             <rect y="30" width="100" height="12" rx="8"></rect>
             <rect y="60" width="100" height="12" rx="8"></rect>
         </svg>
+        <CartBadge />
       </div>
     </>
   );
@@ -56,10 +58,6 @@ const dismissMenuWithHamburger = (hamburger: HTMLElement) => {
   hamburger.classList.remove(styles.pressed);
   const menu = document.querySelector(`.${styles.menu}`);
   menu?.classList.remove(styles.menuDropDown);
-}
-
-async function invokeAsAsync(fn: () => {}): Promise<any> {
-  fn();
 }
 
 export const dismissMenu = (e: React.PointerEvent<HTMLElement>) => {
