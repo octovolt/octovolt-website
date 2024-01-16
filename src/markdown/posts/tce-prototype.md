@@ -10,19 +10,6 @@ in some of my live video art performances in support of live bands and DJs at sh
 :a[Light Rail Studios]{.https://www.lightrailstudios.com} in San Francisco. It's been a great
 addition to my video set up.
 
-This circuit was originally designed by :a[Rob Schafer]{.https://www.youtube.com/c/schaferob} and
-later improved by :a[cyberboy666]{.https://github.com/cyberboy666}. I talked with
-cyberboy666 about whether it would be okay for me to create this Eurorack version, and he said that
-it's open hardware so I should feel free to do so. If you are interested in his design, which leaves
-the electronic components exposed and operates on a dedicated +5v wall wart power supply, you can
-get his :a[version]{.https://underscores.shop/product/two_comparator_effect} on the
-:a[underscores]{.https://underscores.shop} website.
-
-I hope I have contributed to the lineage of of this circuit's design by converting it to a Eurorack
-module. In the spirit of this, I decided to put the open hardware logo on the front panel rather
-than my normal octopus logo. I also have the
-:a[KiCAD files published on GitHub]{.https://github.com/octovolt/TCE}.
-
 You can see it working in the video below, on the
 :a[Octovolt YouTube channel]{.https://www.youtube.com/@Octovolt-os2up}.
 
@@ -39,6 +26,20 @@ You can see it working in the video below, on the
     allowfullscreen="">
   </iframe>
 </div>
+
+This circuit was originally designed by :a[Rob Schafer]{.https://www.youtube.com/c/schaferob} and
+later improved by :a[cyberboy666]{.https://github.com/cyberboy666}. I talked with
+cyberboy666 about whether it would be okay for me to create this Eurorack version, and he said that
+it's open hardware so I should feel free to do so. If you are interested in his design, which leaves
+the electronic components exposed and operates on a dedicated +5v wall wart power supply, you can
+get his :a[version]{.https://underscores.shop/product/two_comparator_effect} on the
+:a[underscores]{.https://underscores.shop} website, where you'll also find a lot of other excellent
+circuits for video art.
+
+I hope I have contributed to the lineage of of this circuit's design by converting it to a Eurorack
+module. In the spirit of this, I decided to put the open hardware logo on the front panel rather
+than my normal octopus logo. I also have the
+:a[KiCAD files published on GitHub]{.https://github.com/octovolt/TCE}.
 
 The front panel holes were a little too small for Alpha 9mm potentiometers, so I had to use tall
 trim pots instead. I have revised the front panel to allow the Alpha pots, and I was able to
@@ -74,7 +75,7 @@ comparators, is the fact that the comparator in the TCE (and the original two_co
 actually a little bit too slow for video. The comparator in question is the
 :a[LM339]{.https://www.ti.com/lit/ds/symlink/lm339.pdf}, which is cheap, widely available, and comes
 in a through-hole quad package. Unfortunately, it has a response time of about 1.3 microseconds,
-and for accurate video work we would want a response time under 83 microseconds (according to my
+and for accurate video work we would want a response time under 83 nanoseconds (according to my
 calculations for NTSC 720×480 video -- please [contact](/contact) me if I'm wrong). The resulting
 image from the LM339 is shifted very slightly to the right. You can see this pretty clearly in
 :a[this post]{.https://www.instagram.com/p/C0Ju9wTrKbt/}, where the blue and red signals are going
